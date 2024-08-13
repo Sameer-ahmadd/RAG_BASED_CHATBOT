@@ -21,4 +21,4 @@ To run application:
 pip install -r requirements.txt 
 chainlit run app.py 
 ```
-[Hosted Huggingface App on Spaces](https://huggingface.co/spaces/itsJB/Finance_Knowledge_Bot)
+[Hosted Huggingface App on Spaces](https://huggingface.co/spaces/sameerahmad/Rag_Based_chatbot_using_llamaIndex)
