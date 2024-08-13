@@ -1,0 +1,38 @@
+1
+NN∑
+i=1yilnfID3(xi) + (1−yi) ln (1−fID3(xi)), (5)
+wherefID3is a decision tree.
+By now, it looks very similar to logistic regression. However, contrary to the logistic regression
+learning algorithm which builds a parametric model fw∗,b∗by ﬁnding an optimal solution
+to the optimization criterion, the ID3 algorithm optimizes it approximately by constructing a
+nonparametric model fID3(x)def= Pr(y= 1|x).
+S={( x1,   y1),  ( x2,   y2), ( x3,  y3),
+( x4,  y4), ( x5,  y5), ( x6,  y6),
+( x7,  y7), ( x8,   y8), ( x9,   y9),
+( x1 0,  y1 0), ( x1 1, y1 1), ( x1 2,  y1 2)}x
+Pr( y = 1 | x)  = ( y1 +y2 +y3 +y4 +y5  
++y6 +y7 +y8 +y9 +y1 0 +y1 1 +y1 2)/12
+Pr( y = 1 | x)
+(a)
+x
+Pr( y =  1 | x )  =  ( y1 +y2 +y4  
++y6 +y7 +y8 +y9 )/7
+Pr( y =  1 | x )x( 3 )  < 18.3?
+S­   = { ( x1 ,   y1 ) ,   ( x2 ,   y2 ),
+( x4 ,   y4 ),  ( x6 ,   y6 ), ( x7 ,   y7 ),
+( x8 ,   y8 ),  ( x9 ,   y9 ) }  
+Pr( y =  1 | x )  =
+( y3 +y5 +y1 0 + y1 1 + y1 2 )/5
+Pr( y =  1 | x )S+   = { ( x3 ,   y3 ),  ( x5 ,   y5 ), ( x1 0 ,   y1 0 ),
+( x1 1 ,  y1 1 ), ( x1 2 ,  y1 2 ) }  Y es No (b)
+Figure 4: An illustration of a decision tree building algorithm. The set Scontains 12labeled
+examples. (a) In the beginning, the decision tree only contains the start node; it makes the
+same prediction for any input. (b) The decision tree after the ﬁrst split; it tests whether
+feature 3is less than 18.3and, depending on the result, the prediction is made in one of the
+two leaf nodes.
+The ID3 learning algorithm works as follows. Let Sdenote a set of labeled examples. In the
+beginning, thedecisiontreeonlyhasastartnodethatcontainsallexamples: Sdef={(xi,yi)}N
+i=1.
+Start with a constant model fS
+ID3deﬁned as,
+Andriy Burkov The Hundred-Page Machine Learning Book - Draft 10

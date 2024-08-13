@@ -1,0 +1,36 @@
+After training, we have Bdecision trees. The prediction for a new example xis obtained as
+the average of Bpredictions:
+y←ˆf(x)def=1
+BB∑
+b=1fb(x),
+in the case of regression, or by taking the majority vote in the case of classiﬁcation.
+Random forest is diﬀerent from the vanilla bagging in just one way. It uses a modiﬁed tree
+learning algorithm that inspects, at each split in the learning process, a random subset of
+the features. The reason for doing this is to avoid the correlation of the trees: if one or a
+few features are very strong predictors for the target, these features will be selected to split
+examples in many trees. This would result in many correlated trees in our “forest.” Correlated
+predictors cannot help in improving the accuracy of prediction. The main reason behind a
+better performance of model ensembling is that models that are good will likely agree on
+the same prediction, while bad models will likely disagree on diﬀerent ones. Correlation will
+make bad models more likely to agree, which will hamper the majority vote or the average.
+The most important hyperparameters to tune are the number of trees, B, and the size of the
+random subset of the features to consider at each split.
+Random forest is one of the most widely used ensemble learning algorithms. Why is it so
+eﬀective? The reason is that by using multiple samples of the original dataset, we reduce
+thevariance of the ﬁnal model. Remember that the low variance means low overﬁtting .
+Overﬁttinghappenswhenourmodeltriestoexplainsmallvariationsinthedatasetbecauseour
+dataset is just a small sample of the population of all possible examples of the phenomenon we
+try to model. If we were unlucky with how our training set was sampled, then it could contain
+some undesirable (but unavoidable) artifacts: noise, outliers and over- or underrepresented
+examples. By creating multiple random samples with replacement of our training set, we
+reduce the eﬀect of these artifacts.
+7.5.3 Gradient Boosting
+Another eﬀective ensemble learning algorithm, based on the idea of boosting, is gradient
+boosting . Let’s ﬁrst look at gradient boosting for regression. To build a strong regressor,
+we start with a constant model f=f0(just like we did in ID3):
+f=f0(x)def=1
+NN∑
+i=1yi.
+Then we modify labels of each example i= 1,...,Nin our training set like follows:
+ˆyi←yi−f(xi), (2)
+Andriy Burkov The Hundred-Page Machine Learning Book - Draft 10

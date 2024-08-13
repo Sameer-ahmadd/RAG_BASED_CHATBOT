@@ -1,0 +1,41 @@
+Again, like in logistic regression, we apply the maximum likelihood principle by trying to
+ﬁnd such an fthat maximizes Lf=∑N
+i=1ln [Pr(yi= 1|xi,f)]. Again, to avoid numerical
+overﬂow, we maximize the sum of log-likelihoods rather than the product of likelihoods.
+The algorithm starts with the initial constant model f=f0=p
+1−p, wherep=1
+N∑N
+i=1yi.
+(It can be shown that such initialization is optimal for the sigmoid function.) Then at each
+iterationm, a new tree fmis added to the model. To ﬁnd the best fm, ﬁrst the partial
+derivativegiof the current model is calculated for each i= 1,...,N:
+gi=dLf
+df,
+wherefis the ensemble classiﬁer model built at the previous iteration m−1. To calculate gi
+we need to ﬁnd the derivatives of ln [Pr(yi= 1|xi,f)]with respect to ffor alli. Notice that
+ln [Pr(yi= 1|xi,f)]def= ln[
+1
+1+e−f(xi)]
+. The derivative of the right-hand term in the previous
+equation with respect to fequals to1
+ef(xi)+1.
+We then transform our training set by replacing the original label yiwith the corresponding
+partial derivative gi, and build a new tree fmusing the transformed training set. Then we
+ﬁnd the optimal update step ρmas:
+ρm←arg max
+ρLf+ρfm.
+At the end of iteration m, we update the ensemble model fby adding the new tree fm:
+f←f+αρmfm.
+We iterate until m=M, then we stop and return the ensemble model f.
+Gradient boosting is one of the most powerful machines learning algorithms. Not just because
+it creates very accurate models, but also because it is capable of handling huge datasets with
+millions of examples and features. It usually outperforms random forest in accuracy but,
+because of its sequential nature, can be signiﬁcantly slower in training.
+7.6 Learning to Label Sequences
+Sequence is one the most frequently observed types of structured data. We communicate
+using sequences of words and sentences, we execute tasks in sequences, our genes, the music
+we listen and videos we watch, our observations of a continuous process, such as a moving
+car or the price of a stock are all sequential.
+Sequence labeling is the problem of automatically assigning a label to each element of a
+sequence. A labeled sequential training example in sequence labeling is a pair of lists (X,Y),
+Andriy Burkov The Hundred-Page Machine Learning Book - Draft 12

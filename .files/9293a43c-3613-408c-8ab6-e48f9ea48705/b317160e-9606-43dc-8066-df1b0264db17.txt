@@ -1,0 +1,87 @@
+1
+1
+1
+1111
+10 0 
+0 
+0 0 0 0 0 -1 2 
+4 -2 ImageFilter  
+4 Output before
+nonlinearity  
+1
+1
+1
+1111
+10 0 
+0 
+0 0 0 0 0 -1 2 
+4 -2 
+4 7 Conv 1
+Conv 21Bias
+11
+1
+1
+1111
+10 0 
+0 
+0 0 0 0 0 -1 2 
+4 -2 
+4 
+Conv 3
+17 
+0 
+1
+1
+1
+1111
+10 0 
+0 
+0 0 0 0 0 -1 2 
+4 -2 
+4 
+Conv 4
+17 
+0 -1 Figure 5: Convolution with stride 2.
+0
+0
+0
+0
+0 0 0 0 00 0 0 0 0 0
+0
+0
+0
+0
+01
+1
+1
+1111
+10 0 
+0 
+0 0 0 0 0 -1 2 
+4 -2 Image with padding 1Filter  
+-1 Output before
+nonlinearity  
+Conv 1
+1Bias
+0
+0
+0
+0
+0 0 0 0 00 0 0 0 0 0
+0
+0
+0
+0
+01
+1
+1
+1111
+10 0 
+0 
+0 0 0 0 0 -1 2 
+4 -2 
+-1 0
+Conv 2
+1
+Figure 6: Convolution with stride 2and padding 1.
+Andriy Burkov The Hundred-Page Machine Learning Book - Draft 12

@@ -1,0 +1,2 @@
+Figure 1: Machine learning algorithm selection diagram for scikit-learn.
+Andriy Burkov The Hundred-Page Machine Learning Book - Draft 10

@@ -1,0 +1,39 @@
+where ˆyi, called the residual , is the new label for example xi.
+Now we use the modiﬁed training set, with residuals instead of original labels, to build a new
+decision tree model, f1. The boosting model is now deﬁned as fdef=f0+αf1, whereαis the
+learning rate (a hyperparameter).
+Then we recompute the residuals using eq. 2 and replace the labels in the training data once
+again, train the new decision tree model f2, redeﬁne the boosting model as fdef=f0+αf1+αf2
+and the process continues until the predeﬁned maximum Mof trees are combined.
+Intuitively, what’s happening here? By computing the residuals, we ﬁnd how well (or poorly)
+the target of each training example is predicted by the current model f. We then train
+another tree to ﬁx the errors of the current model (this is why we use residuals instead of
+real labels) and add this new tree to the existing model with some weight α. Therefore, each
+additional tree added to the model partially ﬁxes the errors made by the previous trees until
+the maximum number M(another hyperparameter) of trees are combined.
+Now you should reasonably ask why the algorithm is called gradient boosting? In gradient
+boosting, we don’t calculate any gradient contrary to what we did in Chapter 4 for linear
+regression. To see the similarity between gradient boosting and gradient descent remember
+why we calculated the gradient in linear regression: we did that to get an idea on where we
+should move the values of our parameters so that the MSE cost function reaches its minimum.
+The gradient showed the direction, but we didn’t know how far we should go in this direction,
+so we used a small step αat each iteration and then reevaluated our direction. The same
+happens in gradient boosting. However, instead of getting the gradient directly, we use its
+proxy in the form of residuals: they show us how the model has to be adjusted so that the
+error (the residual) is reduced.
+The three principal hyperparameters to tune in gradient boosting are the number of trees,
+the learning rate, and the depth of trees — all three aﬀect model accuracy. The depth of
+trees also aﬀects the speed of training and prediction: the shorter, the faster.
+It can be shown that training on residuals optimizes the overall model ffor the mean squared
+error criterion. You can see the diﬀerence with bagging here: boosting reduces the bias (or
+underﬁtting) instead of the variance. As such, boosting can overﬁt. However, by tuning the
+depth and the number of trees, overﬁtting can be largely avoided.
+Gradient boosting for classiﬁcation is similar, but the steps are slightly diﬀerent. Let’s
+consider the binary case. Assume we have Mregression decision trees. Similarly to logistic
+regression, the prediction of the ensemble of decision trees is modeled using the sigmoid
+function:
+Pr(y= 1|x,f)def=1
+1 +e−f(x),
+wheref(x)def=∑M
+m=1fm(x)andfmis a regression tree.
+Andriy Burkov The Hundred-Page Machine Learning Book - Draft 11

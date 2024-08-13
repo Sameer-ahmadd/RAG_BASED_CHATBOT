@@ -1,0 +1,33 @@
+xt ← [x(1),t,x(2),t]x(2),t
+ht­ 11,1
+ht­ 1l,2ht1,1
+ht1,1 ← g1( w1,1 xt +  u 1,1 ht­ 11 + b 1,1)yt
+1 ←  g2( V1 ht
+1 +  c1)
+x(1),t
+x(2),t
+ht­ 1
+1,1
+ht­ 11,2ht
+1,2
+ht1,2 ← g1( w1,2 xt +  u 1,2 ht­ 1
+1 + b1,2)x(1),t
+xt ← [x(1),t,x(2),t]layer 1
+ht1 ← [ht1,1,ht1,2]
+ht­ 12,1
+ht­ 12,2ht2,1
+ht2,1  ←  g 1( w 2,1 h 1t +  u 2,1 ht­ 12 + b 2,1)
+ht­ 1
+2,1
+ht­ 12,2ht
+2,2layer 2
+ht1 ← [ht1,1,ht1,2]
+yt2  ←   g 2( V 2 ht2 +  c 2)ht2  ←[ht2,1,ht2,2]yt1 yt2
+ht
+1 ← [ht
+1,1,ht1,2]
+ht
+2,2 ← g1( w2,2 ht
+1 +  u 2,2 ht­ 12 + b 2,2)
+Figure 9: The ﬁrst two layers of an RNN. The input feature vector is two-dimensional; each layer has two units.
+Andriy Burkov The Hundred-Page Machine Learning Book - Draft 15

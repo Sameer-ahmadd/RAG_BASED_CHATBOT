@@ -1,0 +1,11 @@
+to rebuild the model from scratch. Other algorithms (such as Naïve Bayes, multilayer percep-
+tron, SGDClassiﬁer/SGDRegressor, PassiveAggressiveClassiﬁer/PassiveAggressiveRegressor
+in scikit-learn) can be trained iteratively, one batch at a time. Once new training examples
+are available, you can update the model using only the new data.
+Finally, some algorithms, like decision tree learning, SVM, and kNN can be used for both clas-
+siﬁcation and regression, while others can only solve one type of problem: either classiﬁcation
+or regression, but not both.
+Usually, each library provides the documentation that explains what kind of problem each
+algorithm solves, what input values are allowed and what kind of output the model produces.
+The documentation also provides information on hyperparameters.
+Andriy Burkov The Hundred-Page Machine Learning Book - Draft 10
